@@ -1,15 +1,18 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import TiltCard from "./TiltCard"
 
-const Card = React.forwardRef(({ className, ...props }, ref) => (
-  <div
+const Card = React.forwardRef(({ className, children, ...props }, ref) => (
+  <TiltCard
     ref={ref}
     className={cn(
-      "rounded-2xl border border-gold-border bg-primary text-text-primary shadow-lg overflow-hidden",
+      "w-full h-full text-text-primary shadow-lg",
       className
     )}
     {...props}
-  />
+  >
+    {children}
+  </TiltCard>
 ))
 Card.displayName = "Card"
 

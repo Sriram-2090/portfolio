@@ -1,4 +1,5 @@
 import { cn } from "../../lib/utils";
+import TiltCard from "./TiltCard";
 
 export const BentoGrid = ({
   className,
@@ -7,7 +8,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
+        "grid md:auto-rows-[21rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
         className
       )}
     >
@@ -21,25 +22,25 @@ export const BentoGridItem = ({
   title,
   description,
   header,
-  icon,
 }) => {
   return (
-    <div
+    <TiltCard
       className={cn(
-        "rounded-2xl overflow-hidden row-span-1 border border-gold-border group/bento hover:shadow-xl transition duration-200 shadow-none p-6 bg-primary flex flex-col justify-between",
+        "row-span-1 p-6 flex flex-col justify-between group/bento",
         className
       )}
     >
-      {header}
-      <div className="group-hover/bento:translate-x-2 transition duration-200">
-        <div className="text-secondary mb-2 mt-2">{icon}</div>
-        <div className="font-sans font-bold text-text-primary mb-2 mt-2">
+      <div className="w-full h-32 relative overflow-hidden rounded-xl border border-white/[0.04] bg-black/30 flex items-center justify-center">
+        {header}
+      </div>
+      <div className="transform-gpu group-hover/bento:translate-y-[-4px] transition-all duration-500">
+        <div className="font-sans font-bold text-white text-lg mb-1 leading-snug">
           {title}
         </div>
-        <div className="font-sans font-normal text-text-secondary text-sm">
+        <div className="font-sans font-normal text-text-secondary text-xs leading-relaxed">
           {description}
         </div>
       </div>
-    </div>
+    </TiltCard>
   );
 };
